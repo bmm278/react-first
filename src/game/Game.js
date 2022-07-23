@@ -1,74 +1,103 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
 import './Game.css';
+import Card from './../components/Card.js'
+
+const initialCards = [
+  { "src": "/images/bulbasaur.png", matched: false },
+  { "src": "/images/butterfree.png", matched: false },
+  { "src": "/images/charmander.png", matched: false },
+  { "src": "/images/pidgeotto.png", matched: false },
+  { "src": "/images/pikachu.png", matched: false },
+  { "src": "/images/squirtle.png", matched: false },
+];
 
 function Game() {
-  
+  const [cards, setCards] = useState([]);
+  const [turn, setTurn] = useState(0);
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null)
+  const [disabled, setDisabled] = useState(true);
+  const [startFlip, setStartFlip] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStartFlip(false)
+    }, 1000);
+    shuffleCards();
+  }, []);
+
+  function shuffleCards() {
+    //setCards(null)
+    const shuffledCards = [...initialCards, ...initialCards]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setCards(shuffledCards);
+    setTurn(0);
+    setDisabled(false)
+    setStartFlip(true)
+    setTimeout(() => {
+      setStartFlip(false)
+    }, 1000);
+  }
+
+
+  function handleChoice(card) {
+    choiceOne ? (
+      choiceOne.id !== card.id &&
+      setChoiceTwo(card))
+      : setChoiceOne(card)
+  }
+
+  function resetTurn() {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurn(prevTurn => prevTurn + 1)
+    setDisabled(false)
+  }
+
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      setDisabled(true);
+      if (choiceOne.src === choiceTwo.src) {
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true }
+            } else {
+              return card
+            }
+          })
+        })
+        resetTurn();
+      } else {
+        setTimeout(() => {
+          resetTurn();
+        }, 1000);
+      }
+    }
+  }, [choiceOne, choiceTwo]);
+
   return (
-    <>
-    <section class="memory-game">
-      <div class="memory-card" data-framework="s_tuna">
-        <img class="front-face" src="/game-img/s_tuna.png" alt="s_tuna" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
+    <div className='container'>
+      <button onClick={shuffleCards}>New Game</button>
+      <div className="grid">
+        {cards.map(card => (
+          <Card
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched || startFlip}
+            disabled={disabled}
+            matched={card.matched}
+          />
+        ))}
       </div>
-
-      <div class="memory-card" data-framework="s_tuna">
-        <img class="front-face" src="/game-img/s_tuna.png" alt="s_tuna" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="angular">
-        <img class="front-face" src="/game-img/F- durian.png" alt="angular" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="angular">
-        <img class="front-face" src="/game-img/F- durian.png" alt="angular" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="crab">
-        <img class="front-face" src="/game-img/s_crab_2.png" alt="crab" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="crab">
-        <img class="front-face" src="/game-img/s_crab_2.png" alt="crab" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="v_leafy_bokchoy">
-        <img class="front-face" src="/game-img/v_leafy_bokchoy.png" alt="v_leafy_bokchoy" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="v_leafy_bokchoy">
-        <img class="front-face" src="/game-img/v_leafy_bokchoy.png" alt="v_leafy_bokchoy" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="cabbage">
-        <img class="front-face" src="/game-img/v_leafy_cabbage.png" alt="cabbage" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="cabbage">
-        <img class="front-face" src="/game-img/v_leafy_cabbage.png" alt="cabbage" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="pumpkins">
-        <img class="front-face" src="/game-img/v_melons_corms_pumpkins.png" alt="pumpkins" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-
-      <div class="memory-card" data-framework="pumpkins">
-        <img class="front-face" src="/game-img/v_melons_corms_pumpkins.png" alt="pumpkins" />
-        <img class="back-face" src="/game-img/realistic-white-plate-isolated_1284-41743.png" alt="Memory Card" />
-      </div>
-      
-      
-    </section>
-    </>
-  )
+      <p>Turns: {turn}</p>
+    </div>
+  );
 }
+
 export default Game;
