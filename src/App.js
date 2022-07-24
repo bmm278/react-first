@@ -1,9 +1,9 @@
-import Game from './game/Game'
+import Dailypoint from './game/Dailypoint'
 
 function App() {
   return (
     <>
-      <Game />
+      <Dailypoint />
     </>
   )
 }

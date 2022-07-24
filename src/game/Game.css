@@ -1,11 +1,11 @@
-.container {
+.game-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container button {
+.game-container button {
     color: white;
     background-color: black;
     border: 2px solid white;
@@ -15,12 +15,12 @@
     font-size: 1rem;
 }
 
-.container button:hover {
+.game-container button:hover {
     filter: brightness(0.7);
     cursor: pointer;
 }
 
-p {
+.gametext {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,15 +33,16 @@ p {
     height: 4rem;
 }
 
-.grid {
-    height: 600px;
-    width: 600px;
+.game-grid {
+    /* height: 600px;
+    width: 600px; */
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
 }
 
-.grid div img {
+.game-grid div img {
     width: 80%;
+    
 }

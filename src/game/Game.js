@@ -3,12 +3,12 @@ import './Game.css';
 import Card from './../components/Card.js'
 
 const initialCards = [
-  { "src": "/images/bulbasaur.png", matched: false },
-  { "src": "/images/butterfree.png", matched: false },
-  { "src": "/images/charmander.png", matched: false },
-  { "src": "/images/pidgeotto.png", matched: false },
-  { "src": "/images/pikachu.png", matched: false },
-  { "src": "/images/squirtle.png", matched: false },
+  { "src": "/game-images/bulbasaur.png", matched: false },
+  { "src": "/game-images/butterfree.png", matched: false },
+  { "src": "/game-images/charmander.png", matched: false },
+  { "src": "/game-images/pidgeotto.png", matched: false },
+  { "src": "/game-images/pikachu.png", matched: false },
+  { "src": "/game-images/squirtle.png", matched: false },
 ];
 
 function Game() {
@@ -81,9 +81,9 @@ function Game() {
   }, [choiceOne, choiceTwo]);
 
   return (
-    <div className='container'>
+    <div className='game-container'>
       <button onClick={shuffleCards}>New Game</button>
-      <div className="grid">
+      <div className="game-grid">
         {cards.map(card => (
           <Card
             key={card.id}
@@ -95,7 +95,7 @@ function Game() {
           />
         ))}
       </div>
-      <p>Turns: {turn}</p>
+      <p className='gametext'>Turns: {turn}</p>
     </div>
   );
 }

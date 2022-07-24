@@ -8,34 +8,34 @@ function Dailypoint () {
                 <div className="container pt-5">
                     <div className="text-center pt-5 ">
                         <img
-                            src="/game-img/1041602.png"
+                            src="/dailypoint-img/1041602.png"
                             alt=""
                             className="eggyellow mb-4 mt-4"
                         />
                     </div>
                     <div className="text-center">
                         <img
-                            src="/game-img/812921.png"
+                            src="/dailypoint-img/812921.png"
                             alt=""
                             className="egg"
                         />
                         <img
-                            src="/game-img/812921.png"
+                            src="/dailypoint-img/812921.png"
                             alt=""
                             className="egg"
                         />
                         <img
-                            src="/game-img/812921.png"
+                            src="/dailypoint-img/812921.png"
                             alt=""
                             className="egg"
                         />
                         <img
-                            src="/game-img/812921.png"
+                            src="/dailypoint-img/812921.png"
                             alt=""
                             className="egg"
                         />
                         <img
-                            src="/game-img/812921.png"
+                            src="/dailypoint-img/812921.png"
                             alt=""
                             className="egg"
                         />
@@ -60,7 +60,7 @@ function Dailypoint () {
                             <div className="col-8">
                                 <img
                                     className="w-100 objfit"
-                                    src="/game-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
                                     alt=""
                                 />
                             </div>
@@ -91,7 +91,7 @@ function Dailypoint () {
                             <div className="col-8">
                                 <img
                                     className="img-fluid objfit"
-                                    src="/game-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
                                     alt=""
                                 />
                             </div>
@@ -122,7 +122,7 @@ function Dailypoint () {
                             <div className="col-8">
                                 <img
                                     className="img-fluid objfit"
-                                    src="/game-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
                                     alt=""
                                 />
                             </div>
@@ -153,7 +153,7 @@ function Dailypoint () {
                             <div className="col-8">
                                 <img
                                     className="img-fluid objfit"
-                                    src="/game-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
                                     alt=""
                                 />
                             </div>
