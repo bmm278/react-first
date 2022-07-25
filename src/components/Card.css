@@ -1,11 +1,11 @@
 .card {
+    position: relative;
+    cursor: pointer;
+    border: 1px transparent solid;
     
-position: relative;
-cursor: pointer;
 }
 
 .card .front{
-
     display: flex;
     justify-content: center;
     position: absolute;
@@ -13,6 +13,7 @@ cursor: pointer;
     transition: all ease-in 0.2s;
     /* backface-visibility: hidden; */
     border-radius: 50%;
+    
 }
 
 
@@ -22,8 +23,8 @@ cursor: pointer;
 
 .flipped .front {
     width: 100%;
-  height: 100%;
-  padding: 20px;
+    height: 100%;
+    padding: 20px;
     transform: rotateY(0deg);
     transition-delay: 0.2s;
     position: absolute;
@@ -36,12 +37,12 @@ cursor: pointer;
 
 .card .back{
     -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  width: 100%;
-  height: 100%;
-  /* padding: 20px; */
-  background-image: url('/public/game-images/card_back.png');
-  background-size: cover;
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    /* padding: 20px; */
+    background-image: url('/public/game-images/card_back.png');
+    background-size: cover;
 }
 
 .flipped .back {
