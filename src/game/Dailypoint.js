@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
 import './Dailypoint.css';
-
+import ChangeTab from '../components/ChangeTab'
 
 function Dailypoint () {
 
-    const [eggpoint, seteggpoint] = useState (0)
     const [dataCheck, setDataCheck] = useState (true)
     // const [eggbroken, seteggbroken] = useState({src:"/dailypoint-img/812921.png",dataCheck:true})
 
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
+    const[eggpoints, setEggPoints] = useState(0);
 
     const brokenegg = "/dailypoint-img/44434.png" 
     const defaultegg = "/dailypoint-img/812921.png" 
     console.log(brokenegg)
 
-    // const setPoint=()=>{
-    //     return 
-    //     seteggpoint(eggpoint + 10)
-    //     // seteggbroken(/dailypoint-img/44434.png)
-        
-    // }
 
     const eggClick = (i) =>{
         // console.log({i})
@@ -27,9 +21,16 @@ function Dailypoint () {
         const newEggStates = [...eggStates];
         newEggStates[i] = 1;
         setEggStates(newEggStates);
+        const pointArray = [5,10,15,20,25,30]
+        const randomNum = Math.ceil(Math.random()*6)
+        const getPoint = pointArray[randomNum]
+        //TODO 問心得為啥沒數字
+        console.log(getPoint);
+        setEggPoints(getPoint)
         setDataCheck(false)
     } else {
             alert("今天領過囉")
+
         }
         /*
         console.log(e.target);
@@ -44,7 +45,7 @@ function Dailypoint () {
     return (
         <>
             <div className="mb-4 text-white bgg">
-                <div className="container pt-5" onClick={()=>{seteggpoint(eggpoint + 10)}} >
+                <div className="container pt-5">
                     <div className="text-center pt-5">
                         <img
                             src="/dailypoint-img/1041602.png"
@@ -67,25 +68,36 @@ function Dailypoint () {
                         />
                             )
                         })}
-                        
-                        
-                        
+
                     </div>
                     <br />
                     <div className="">
                         <h1 className="display-6 text-center">點擊領取</h1>
                     </div>
                     <div className="">
-                        <h1 className="display-7 text-center ">目前點數:{eggpoint}</h1>
+                        <h1 className="display-7 text-center ">目前點數:{eggpoints}</h1>
                     </div>
                     <br />
                     <div className="">
                         <p className="lead mb-0 text-center bg-danger">
-                            今日已完成兌換囉...
+                            今日已完成兌換囉...{}
                         </p>
                     </div>
                 </div>
             </div>
+                        
+            <div><ChangeTab/></div> 
+
+            {/* <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li className="nav-item" role="presentation">
+            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            </li>
+                </ul>
+             */}
+
             <div className="container">
                 <div className="row mb-2">
                     <div className="col-md-6 coupon">

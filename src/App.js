@@ -1,9 +1,11 @@
+import ChangeTab from './components/ChangeTab'
 import Dailypoint from './game/Dailypoint'
 
 function App() {
   return (
     <>
-      <Dailypoint />
+      {/* <ChangeTab /> */}
+      <Dailypoint /> 
     </>
   )
 }

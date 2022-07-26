@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Game.css';
 import Card from './../components/Card.js'
+import clsx from 'clsx'
 
 const initialCards = [
   { "src": "/game-images/bulbasaur.png", matched: false },
