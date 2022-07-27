@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Pagination({ page, totalPages }) {
     return (
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example ">
             <ul className="pagination">
                 <li className="page-item">
                     <a className="page-link" href="#/">
@@ -14,7 +14,6 @@ export default function Pagination({ page, totalPages }) {
                     .fill(1)
                     .map((v, i) => {
                         const isActive = page === page + i - 5 ? "active" : "";
-
                         return page + i - 5 >= 1 &&
                             page + i - 5 <= totalPages ? (
                             <li

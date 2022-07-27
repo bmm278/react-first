@@ -22,7 +22,7 @@ function Game() {
   useEffect(() => {
     setTimeout(() => {
       setStartFlip(false)
-    }, 1000);
+    }, 500);
     shuffleCards();
   }, []);
 
@@ -56,6 +56,12 @@ function Game() {
     setChoiceTwo(null)
     setTurn(prevTurn => prevTurn + 1)
     setDisabled(false)
+  }
+
+  function checkwin() {
+    if (turn >= 3) {
+      alert('恭喜獲得10點')
+    }
   }
 
   useEffect(() => {
@@ -92,6 +98,7 @@ function Game() {
             flipped={card === choiceOne || card === choiceTwo || card.matched || startFlip}
             disabled={disabled}
             matched={card.matched}
+            checkwin={checkwin}
           />
         ))}
       </div>

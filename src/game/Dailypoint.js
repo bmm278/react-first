@@ -9,11 +9,11 @@ function Dailypoint () {
 
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
     const[eggpoints, setEggPoints] = useState(0);
+    const [showup, setShowup] = useState();
 
     const brokenegg = "/dailypoint-img/44434.png" 
     const defaultegg = "/dailypoint-img/812921.png" 
     console.log(brokenegg)
-
 
     const eggClick = (i) =>{
         // console.log({i})
@@ -22,15 +22,15 @@ function Dailypoint () {
         newEggStates[i] = 1;
         setEggStates(newEggStates);
         const pointArray = [5,10,15,20,25,30]
-        const randomNum = Math.ceil(Math.random()*6)
+        const randomNum = Math.ceil(Math.random()*6)-1
         const getPoint = pointArray[randomNum]
-        //TODO 問心得為啥沒數字
+        //TODO 問心得為啥沒數字,超出邊界
         console.log(getPoint);
         setEggPoints(getPoint)
         setDataCheck(false)
     } else {
-            alert("今天領過囉")
-
+            // alert("今天領過囉")
+            setShowup("今日已完成兌換囉...")
         }
         /*
         console.log(e.target);
@@ -80,7 +80,7 @@ function Dailypoint () {
                     <br />
                     <div className="">
                         <p className="lead mb-0 text-center bg-danger">
-                            今日已完成兌換囉...{}
+                            {showup}
                         </p>
                     </div>
                 </div>

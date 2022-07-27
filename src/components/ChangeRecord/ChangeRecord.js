@@ -32,12 +32,7 @@ export default function ChangeRecord() {
     }, [location]);
 
     return (
-        <div>
-            {data && data.totalPages ? (
-              <Pagination page={data.page} totalPages={data.totalPages} />
-            ) : null}
-
-            {console.log({ data })}
+        <div className="container">
             <table className="table table-striped">
                 <thead>
           <tr>
@@ -65,6 +60,11 @@ export default function ChangeRecord() {
             : null}
         </tbody>
       </table>
+      {data && data.totalPages ? (
+              <Pagination page={data.page} totalPages={data.totalPages} />
+            ) : null}
+
+            {console.log({ data })}
     </div>
   )
 }

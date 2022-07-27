@@ -2,8 +2,9 @@ import './Card.css'
 
 
 function Card(props) {
-
+    
     function handleChoice() {
+        props.checkwin()
         if (!props.disabled)
             props.handleChoice(props.card);
     }
