@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Game.css';
-import Card from './../components/Card.js'
-import clsx from 'clsx'
+import Card from './Card.js'
 
 const initialCards = [
   { "src": "/game-images/bulbasaur.png", matched: false },
@@ -82,7 +81,7 @@ function Game() {
   }, [choiceOne, choiceTwo]);
 
   return (
-    <div className='game-container'>
+    <div className="game-container">
       <button onClick={shuffleCards}>New Game</button>
       <div className="game-grid">
         {cards.map(card => (

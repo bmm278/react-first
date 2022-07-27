@@ -1,11 +1,18 @@
-import ChangeTab from './components/ChangeTab'
 import Dailypoint from './game/Dailypoint'
+import ChangeTab from './components/ChangeTab'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 function App() {
   return (
     <>
-      {/* <ChangeTab /> */}
-      <Dailypoint /> 
+    <BrowserRouter>
+    <Routes>
+    <Route path='/' element={ <Dailypoint /> }>
+    {/* <Route path='/' element={ <ChangeTab /> }> */}
+      </Route>
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }

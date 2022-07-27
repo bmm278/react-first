@@ -3,6 +3,7 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .tab {
     width: 33%;
@@ -21,7 +22,7 @@
   .active {
     background-color: #ffffff;
     color: #3a2c2c;
-    border: 1px solid #3a2c2c;
+    /* border: 1px solid #3a2c2c; */
     border-bottom: 1px solid #ffffff;
     height: 50px;
     margin-bottom: -1px;

@@ -1,11 +1,11 @@
-.card {
+.game-card {
     position: relative;
     cursor: pointer;
     border: 1px transparent solid;
     
 }
 
-.card .front{
+.game-card .front{
     display: flex;
     justify-content: center;
     position: absolute;
@@ -35,7 +35,7 @@
 }
 
 
-.card .back{
+.game-card .back{
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     width: 100%;

@@ -1,12 +1,14 @@
 import styles from "./ChangeTab.module.css"
 import clsx from 'clsx'
 import { useState } from 'react'
-import Game from '../../game/Game'
+import Game from '../Game/Game'
+import Coupon from '../Coupon'
+import ChangeRecord from '../ChangeRecord/ChangeRecord'
 
 function ChangeTab() {
   const [selected, setSelected] = useState(0)
-  const pages = [<Game />]
-  const [info, setInfo] = useState(<Game />)
+  const pages = [<Coupon />, <ChangeRecord />, <Game />]
+  const [info, setInfo] = useState(<Coupon />)
   const handleClicked = (id) => {
     setSelected(selected !== id ? id : undefined)
     setInfo(pages[id])
@@ -22,7 +24,7 @@ function ChangeTab() {
             handleClicked(0)
           }}
         >
-          <p>商品細節</p>
+          <p>折價券</p>
         </div>
         <div
           className={clsx(styles.tab_product_recipe, styles.tab, {
@@ -32,7 +34,7 @@ function ChangeTab() {
             handleClicked(1)
           }}
         >
-          <p>食譜推薦</p>
+          <p>兌換紀錄</p>
         </div>
         <div
           className={clsx(styles.tab_product_share, styles.tab, {
@@ -42,7 +44,7 @@ function ChangeTab() {
             handleClicked(2)
           }}
         >
-          <p>好評分享</p>
+          <p>搶點遊戲</p>
         </div>
       </div>
       <div>{info}</div>

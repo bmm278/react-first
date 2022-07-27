@@ -1,4 +1,5 @@
-import './Card.css';
+import './Card.css'
+
 
 function Card(props) {
 
@@ -8,7 +9,7 @@ function Card(props) {
     }
 
     return (
-        <div className='card'>
+        <div className="game-card">
             <div className={props.flipped ? "flipped" : ""}>
                 <img  className={`front ${props.card.matched ? "matched" : ''}`} src={props.card.src} alt="card front" />
                 <img className='back' src="/game-images/card_back.png" alt="card back" onClick={() => handleChoice()} />
