@@ -1,13 +1,21 @@
-import './Card.css'
+import './gamecard.css'
 
 
 function Card(props) {
-    
+   
     function handleChoice() {
-        props.checkwin()
-        if (!props.disabled)
-            props.handleChoice(props.card);
+        if (!props.disabled){
+            if(props.turn>=3){
+                props.checkwin()
+                alert("恭喜獲得5點")
+            } else {
+                props.handleChoice(props.card);
+                // console.log(props);
+            }
+        
+            }
     }
+
 
     return (
         <div className="game-card">

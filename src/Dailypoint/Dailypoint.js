@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Dailypoint.css';
+import './dailypoint.css';
 import ChangeTab from '../components/ChangeTab'
 
 function Dailypoint () {

@@ -60,7 +60,8 @@ function Game() {
 
   function checkwin() {
     if (turn >= 3) {
-      alert('恭喜獲得10點')
+      setTurn(0)  
+      shuffleCards()
     }
   }
 
@@ -99,6 +100,7 @@ function Game() {
             disabled={disabled}
             matched={card.matched}
             checkwin={checkwin}
+            turn={turn}
           />
         ))}
       </div>

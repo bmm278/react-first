@@ -1,5 +1,5 @@
-import Dailypoint from './game/Dailypoint'
-import ChangeTab from './components/ChangeTab'
+import Dailypoint from './Dailypoint/Dailypoint'
+// import ChangeTab from './components/ChangeTab'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 

@@ -32,7 +32,7 @@ export default function ChangeRecord() {
     }, [location]);
 
     return (
-        <div className="container">
+        <div className="container bggforblue">
             <table className="table table-striped">
                 <thead>
           <tr>
@@ -48,7 +48,7 @@ export default function ChangeRecord() {
         <tbody>
           {data && data.rows
             ? data.rows.map((row) => (
-                <tr key={'mm' + row.change_sid}>
+                  <tr key={'mm' + row.change_sid}>
                   <th scope="row">{row.change_sid}</th>
                   <th scope="row">{row.change_nameid}</th>
                   <td>{row.change_name}</td>

@@ -1,8 +1,20 @@
 import "./coupon.css"
 import React, { useState } from 'react'
+import Dailypoint from '../../Dailypoint/Dailypoint'
 
 export default function Coupon() {
 
+    const[changeCoupon, setchangeCoupon] = useState('50點使用兌換')
+    const[couponstate, setcouponstate] = useState([])
+  
+    // function clickchange () {
+    //     if (setchangeCoupon){
+    //         // alert('兌換OK')
+    //         setchangeCoupon('兌換完成')
+    //     }
+    // }
+
+    
   return (
     <>
         <div className="container">
@@ -27,13 +39,13 @@ export default function Coupon() {
                                     className="mb-1 text-center"
                                     style={{ fontSize: '4rem' }}
                                 >
-                                    $200
+                                    $100
                                 </p>
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary">
-                                    50點使用兌換
+                                <button className="btn btn-primary" onClick={()=>{setchangeCoupon('兌換完成')}}>
+                                    {changeCoupon}
                                 </button>
                             </div>
                         </div>
@@ -63,8 +75,8 @@ export default function Coupon() {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary">
-                                    50點使用兌換
+                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                    100點使用兌換
                                 </button>
                             </div>
                         </div>
@@ -89,13 +101,13 @@ export default function Coupon() {
                                     className="mb-1 text-center"
                                     style={{ fontSize: '4rem' }}
                                 >
-                                    $200
+                                    $300
                                 </p>
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary">
-                                    50點使用兌換
+                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                    150點使用兌換
                                 </button>
                             </div>
                         </div>
@@ -120,13 +132,13 @@ export default function Coupon() {
                                     className="mb-1 text-center"
                                     style={{ fontSize: '4rem' }}
                                 >
-                                    $200
+                                    $400
                                 </p>
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary">
-                                    50點使用兌換
+                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                    200點使用兌換
                                 </button>
                             </div>
                         </div>
