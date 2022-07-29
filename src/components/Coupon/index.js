@@ -1,20 +1,25 @@
 import "./coupon.css"
 import React, { useState } from 'react'
-import Dailypoint from '../../Dailypoint/Dailypoint'
+// import Dailypoint from '../../Dailypoint/Dailypoint'
+import ChangeTab from '../ChangeTab'
 
-export default function Coupon() {
+export default function Coupon(props) {
+    const {eggpoints} = props
+    //useState 裡面應該要放一個變數
+    const[changeCoupon, setchangeCoupon] = useState(50)
+    //const[CouponState, setCouponState] = useState('100點使用兌換券')
 
-    const[changeCoupon, setchangeCoupon] = useState('50點使用兌換')
-    const[couponstate, setcouponstate] = useState([])
-  
-    // function clickchange () {
-    //     if (setchangeCoupon){
-    //         // alert('兌換OK')
-    //         setchangeCoupon('兌換完成')
-    //     }
-    // }
+    //兌換判斷式 這個fc還沒寫完..
+    function clickchange () {
+        console.log(eggpoints)
+        console.log(changeCoupon)
+        if (props.eggpoints <= changeCoupon){
+            alert('抱歉點數不足')
+        } else {
+            alert('兌換成功')
+        }
+    }
 
-    
   return (
     <>
         <div className="container">
@@ -24,7 +29,7 @@ export default function Coupon() {
                             <div className="col-8">
                                 <img
                                     className="w-100 objfit"
-                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/52c1abae31a722933f917fce0fccc868.jpg"
                                     alt=""
                                 />
                             </div>
@@ -44,8 +49,8 @@ export default function Coupon() {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary" onClick={()=>{setchangeCoupon('兌換完成')}}>
-                                    {changeCoupon}
+                                <button className="btn btn-primary" onClick={clickchange}>
+                                    50點使用兌換
                                 </button>
                             </div>
                         </div>
@@ -75,7 +80,7 @@ export default function Coupon() {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                <button className="btn btn-primary" onClick={clickchange}>
                                     100點使用兌換
                                 </button>
                             </div>
@@ -86,7 +91,7 @@ export default function Coupon() {
                             <div className="col-8">
                                 <img
                                     className="img-fluid objfit"
-                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/4b08287a319a467288279c8499eb2db3.jpg"
                                     alt=""
                                 />
                             </div>
@@ -106,7 +111,7 @@ export default function Coupon() {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                <button className="btn btn-primary" onClick={clickchange}>
                                     150點使用兌換
                                 </button>
                             </div>
@@ -117,7 +122,7 @@ export default function Coupon() {
                             <div className="col-8">
                                 <img
                                     className="img-fluid objfit"
-                                    src="/dailypoint-img/top-view-fresh-white-chicken-eggs_114579-82238.jpg"
+                                    src="/dailypoint-img/43961109b445769ed853c21b1d646eeb.jpg"
                                     alt=""
                                 />
                             </div>
@@ -137,7 +142,7 @@ export default function Coupon() {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary" onClick={()=>{alert('抱歉點數不足')}}>
+                                <button className="btn btn-primary" onClick={clickchange}>
                                     200點使用兌換
                                 </button>
                             </div>

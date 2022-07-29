@@ -5,8 +5,6 @@ import ChangeTab from '../components/ChangeTab'
 function Dailypoint () {
 
     const [dataCheck, setDataCheck] = useState (true)
-    // const [eggbroken, seteggbroken] = useState({src:"/dailypoint-img/812921.png",dataCheck:true})
-
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
     const[eggpoints, setEggPoints] = useState(0);
     const [showup, setShowup] = useState();
@@ -86,7 +84,7 @@ function Dailypoint () {
                 </div>
             </div>
 
-            <div><ChangeTab/></div> 
+            <div><ChangeTab eggpoints={eggpoints}/></div> 
 
         </>
     );

@@ -5,10 +5,13 @@ import Game from '../Game/Game'
 import Coupon from '../Coupon'
 import ChangeRecord from '../ChangeRecord/ChangeRecord'
 
-function ChangeTab() {
+function ChangeTab(props) {
+  //解構
+  const {eggpoints} = props
+  
   const [selected, setSelected] = useState(0)
-  const pages = [<Coupon />, <ChangeRecord />, <Game />]
-  const [info, setInfo] = useState(<Coupon />)
+  const pages = [<Coupon eggpoints={eggpoints} />, <ChangeRecord />, <Game />]
+  const [info, setInfo] = useState(<Coupon eggpoints={eggpoints} />)
   const handleClicked = (id) => {
     setSelected(selected !== id ? id : undefined)
     setInfo(pages[id])

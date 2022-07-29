@@ -36,11 +36,11 @@ export default function ChangeRecord() {
             <table className="table table-striped">
                 <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">會員ID</th>
+            {/* <th scope="col">#</th>
+            <th scope="col">會員ID</th> */}
             <th scope="col">會員姓名</th>
-            <th scope="col">兌換點數</th>
-            <th scope="col">兌換數量</th>
+            <th scope="col">折價券</th>
+            <th scope="col">花費點數</th>
             {/* <th scope="col">會員生日</th> */}
             <th scope="col">兌換時間</th>
           </tr>
@@ -49,8 +49,8 @@ export default function ChangeRecord() {
           {data && data.rows
             ? data.rows.map((row) => (
                   <tr key={'mm' + row.change_sid}>
-                  <th scope="row">{row.change_sid}</th>
-                  <th scope="row">{row.change_nameid}</th>
+                  {/* <th scope="row">{row.change_sid}</th>
+                  <th scope="row">{row.change_nameid}</th> */}
                   <td>{row.change_name}</td>
                   <td>{row.change_point}</td>
                   <td>{row.change_quantity}</td>
@@ -60,9 +60,9 @@ export default function ChangeRecord() {
             : null}
         </tbody>
       </table>
-      {data && data.totalPages ? (
+      {/* {data && data.totalPages ? (
               <Pagination page={data.page} totalPages={data.totalPages} />
-            ) : null}
+            ) : null} */}
 
             {console.log({ data })}
     </div>

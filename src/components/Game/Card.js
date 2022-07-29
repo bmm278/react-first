@@ -1,4 +1,4 @@
-import './gamecard.css'
+import './cardgame.css'
 
 
 function Card(props) {

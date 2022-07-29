@@ -89,7 +89,7 @@ function Game() {
 
   return (
     <div className="game-container">
-      <button onClick={shuffleCards}>New Game</button>
+      <p className='gametext'>Turns: {turn}</p>
       <div className="game-grid">
         {cards.map(card => (
           <Card
@@ -104,7 +104,7 @@ function Game() {
           />
         ))}
       </div>
-      <p className='gametext'>Turns: {turn}</p>
+      <button onClick={shuffleCards}>New Game</button>
     </div>
   );
 }
