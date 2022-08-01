@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import './dailypoint.css';
 import ChangeTab from '../components/ChangeTab'
+import axios from 'axios'
+// import { AB_GET_LIST } from "../../config/ajax-path";
+// import { useLocation } from "react-router-dom";
+
 
 function Dailypoint () {
 
@@ -8,6 +12,26 @@ function Dailypoint () {
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
     const[eggpoints, setEggPoints] = useState(0);
     const [showup, setShowup] = useState();
+
+    // const location = useLocation();
+    // const usp = new URLSearchParams(location.search);
+    // console.log(location);
+    // const setDataCheck = async (event, gotoPage) => {
+    //     if (event) {
+    //         event.preventDefault();
+    //     }
+    //     console.log({ gotoPage });
+
+    //     const r = await fetch(`${AB_GET_LIST}?page=${gotoPage}`);
+    //     const obj = await r.json();
+    //     console.log(obj);
+    //     setData(obj);
+    // };
+
+    // useEffect(() => {
+    //     setDataCheck(null, +usp.get('page') || 1);
+    // }, [location]);
+
 
     const brokenegg = "/dailypoint-img/44434.png" 
     const defaultegg = "/dailypoint-img/812921.png" 
@@ -26,6 +50,8 @@ function Dailypoint () {
         console.log(getPoint);
         setEggPoints(getPoint)
         setDataCheck(false)
+        axios.post('http://localhost:3600/server/addpoints' , {change_points:1, change_coupon:1, change_spainpoints:1}).then(result=>{console.log(result.data)})
+
     } else {
             // alert("今天領過囉")
             setShowup("今日已完成兌換囉...")
