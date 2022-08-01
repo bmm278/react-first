@@ -50,7 +50,7 @@ function Dailypoint () {
         console.log(getPoint);
         setEggPoints(getPoint)
         setDataCheck(false)
-        axios.post('http://localhost:3600/server/addpoints' , {change_points:1, change_coupon:1, change_spainpoints:1}).then(result=>{console.log(result.data)})
+        axios.post('http://localhost:3600/game/addpoints' , {change_points:1, change_coupon:1, change_spainpoints:1}).then(result=>{console.log(result.data)})
 
     } else {
             // alert("今天領過囉")
