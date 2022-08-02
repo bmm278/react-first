@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import './dailypoint.css';
 import ChangeTab from '../components/ChangeTab'
 import axios from 'axios'
-// import { AB_GET_LIST } from "../../config/ajax-path";
-// import { useLocation } from "react-router-dom";
 
 
 function Dailypoint () {
@@ -13,29 +11,10 @@ function Dailypoint () {
     const[eggpoints, setEggPoints] = useState(0);
     const [showup, setShowup] = useState();
 
-    // const location = useLocation();
-    // const usp = new URLSearchParams(location.search);
-    // console.log(location);
-    // const setDataCheck = async (event, gotoPage) => {
-    //     if (event) {
-    //         event.preventDefault();
-    //     }
-    //     console.log({ gotoPage });
-
-    //     const r = await fetch(`${AB_GET_LIST}?page=${gotoPage}`);
-    //     const obj = await r.json();
-    //     console.log(obj);
-    //     setData(obj);
-    // };
-
-    // useEffect(() => {
-    //     setDataCheck(null, +usp.get('page') || 1);
-    // }, [location]);
-
 
     const brokenegg = "/dailypoint-img/44434.png" 
     const defaultegg = "/dailypoint-img/812921.png" 
-    console.log(brokenegg)
+    //console.log(brokenegg)
 
     const eggClick = (i) =>{
         // console.log({i})
@@ -43,15 +22,18 @@ function Dailypoint () {
         const newEggStates = [...eggStates];
         newEggStates[i] = 1;
         setEggStates(newEggStates);
-        const pointArray = [5,10,15,20,25,30]
+        const pointArray = [50,100,150,200,250,300]
         const randomNum = Math.ceil(Math.random()*6)-1
         const getPoint = pointArray[randomNum]
-        //TODO 問心得為啥沒數字,超出邊界
-        console.log(getPoint);
-        setEggPoints(getPoint)
-        setDataCheck(false)
-        axios.post('http://localhost:3600/game/addpoints' , {change_points:1, change_coupon:1, change_spainpoints:1}).then(result=>{console.log(result.data)})
 
+        //console.log(getPoint);
+        setEggPoints(getPoint)
+        //每日只領一次
+        setDataCheck(false)
+        //送資料到後端 change_memberid:之後要改成柏安的localstorege,http://localhost:3000/auth/custmerid
+        axios.post('http://localhost:3600/game/addpoints' , {change_points:getPoint, change_memberid:530}).then(result=>{console.log(result.data)})
+        // axios.post('http://localhost:3600/game/addpoints' , {change_points:getPoint, change_coupon:1, change_spainpoints:1}).then(result=>{console.log(result.data)})
+        
     } else {
             // alert("今天領過囉")
             setShowup("今日已完成兌換囉...")

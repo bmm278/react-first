@@ -1,23 +1,28 @@
 import "./coupon.css"
 import React, { useState } from 'react'
 // import Dailypoint from '../../Dailypoint/Dailypoint'
-import ChangeTab from '../ChangeTab'
+//import ChangeTab from '../ChangeTab'
+import axios from 'axios'
 
 export default function Coupon(props) {
     const {eggpoints} = props
     //useState 裡面應該要放一個變數
-    const[changeCoupon, setchangeCoupon] = useState(50)
+    const[changeCoupon, setchangeCoupon] = useState()
     //const[CouponState, setCouponState] = useState('100點使用兌換券')
 
     //兌換判斷式 這個fc還沒寫完..
     function clickchange () {
         console.log(eggpoints)
-        console.log(changeCoupon)
-        if (props.eggpoints <= changeCoupon){
-            alert('抱歉點數不足')
-        } else {
-            alert('兌換成功')
+        //console.log(changeCoupon)
+        if(eggpoints >= changeCoupon){
+            alert('兌換完成')
         }
+        if (eggpoints !== changeCoupon){
+            alert('抱歉點數不足')
+        }
+
+        //送資料到後端
+        axios.post('http://localhost:3600/game/coupon' , {change_coupon:10, change_memberid:530}).then(result=>{console.log(result.data)})
     }
 
   return (
@@ -49,7 +54,7 @@ export default function Coupon(props) {
                                 <p className="card-text mb-3 text-center">
                                     --消費滿500可使用--
                                 </p>
-                                <button className="btn btn-primary" onClick={clickchange}>
+                                <button className="btn btn-primary" onClick={clickchange}> 
                                     50點使用兌換
                                 </button>
                             </div>

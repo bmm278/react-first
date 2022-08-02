@@ -5,7 +5,7 @@ function Card(props) {
    
     function handleChoice() {
         if (!props.disabled){
-            if(props.turn>=3){
+            if(props.turn>=5){
                 props.checkwin()
                 alert("恭喜獲得5點")
             } else {

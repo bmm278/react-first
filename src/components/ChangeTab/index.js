@@ -8,10 +8,10 @@ import ChangeRecord from '../ChangeRecord/ChangeRecord'
 function ChangeTab(props) {
   //解構
   const {eggpoints} = props
-  
+  //在每個分頁都送eggpoints但有bug吃不到
   const [selected, setSelected] = useState(0)
-  const pages = [<Coupon eggpoints={eggpoints} />, <ChangeRecord />, <Game />]
-  const [info, setInfo] = useState(<Coupon eggpoints={eggpoints} />)
+  const pages = [<Coupon eggpoints={eggpoints}/>, <ChangeRecord eggpoints={eggpoints}/>, <Game eggpoints={eggpoints}/>]
+  const [info, setInfo] = useState(<Coupon eggpoints={eggpoints}/>)
   const handleClicked = (id) => {
     setSelected(selected !== id ? id : undefined)
     setInfo(pages[id])
