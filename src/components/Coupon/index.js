@@ -3,39 +3,39 @@ import React, { useState } from 'react'
 // import Dailypoint from '../../Dailypoint/Dailypoint'
 //import ChangeTab from '../ChangeTab'
 import axios from 'axios'
+import { couponobj } from "./data/couponobj"
 
-const coponobj = [
-    {
-      id: 1,
-      point: 50,
-    },
-    {
-      id: 2,
-      point: 100,
-    },
-    {
-      id: 3,
-      point: 150,
-    },
-    {
-      id: 4,
-      point: 200,
-    },
-  ]
+//每個兌換券的物件
+// {
+//    id: 1,
+//    price: 100  
+//    point: 50,
+//    image:'/dailypoint-img/52c1abae31a722933f917fce0fccc868.jpg'
+// },
+
+//const{ id, price, point, image } = props
 
 export default function Coupon(props) {
+    //解構蛋的點數
     const {eggpoints} = props
     console.log(props);
     
-    //把上面的陣列塞進去
-    const[CouponData, setCouponData] = useState(coponobj)
+    //解構couponobj
+    //  {couponobj.map((v, i)=>{
+    //     const { id, price, point, image } = v
+    //     return <Coupon key={id} id={id} price={price} point={point} image={image} />
+    //  })}
+
+    //把data裡的資料塞進去
+    const[CouponData, setCouponData] = useState()
+    
     console.log(CouponData)
 
     //useState 裡面應該要放一個變數
     const[changeCoupon, setchangeCoupon] = useState()
 
       // 呈現資料畫面是否兌換完成
-    const[CouponState50, setCouponState50] = useState('50點兌換')
+    const[CouponState50, setCouponState50] = useState('50點使用兌換')
     //console.log(CouponState50)
 
     //兌換判斷式 這個fc還沒寫完..
@@ -44,7 +44,7 @@ export default function Coupon(props) {
         //console.log(changeCoupon)
         if(eggpoints >= changeCoupon){
             alert('兌換完成')
-            setCouponState50('兌換完成')
+            setCouponState50(CouponState50('兌換完成'))
         }
         if (eggpoints !== changeCoupon){
             alert('抱歉點數不足')

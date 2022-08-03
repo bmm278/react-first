@@ -12,7 +12,7 @@ function Dailypoint () {
     
     const [showup, setShowup] = useState();
 
-    const pointArray = [50,100,150,200,250,300]
+    const pointArray = [10,20,30,40,50,60]
     const randomNum = Math.ceil(Math.random()*6)-1
 
     const brokenegg = "/dailypoint-img/44434.png" 
