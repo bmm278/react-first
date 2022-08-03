@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './dailypoint.css';
 import ChangeTab from '../components/ChangeTab'
 import axios from 'axios'
@@ -9,8 +9,11 @@ function Dailypoint () {
     const [dataCheck, setDataCheck] = useState (true)
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
     const[eggpoints, setEggPoints] = useState(0);
+    
     const [showup, setShowup] = useState();
 
+    const pointArray = [50,100,150,200,250,300]
+    const randomNum = Math.ceil(Math.random()*6)-1
 
     const brokenegg = "/dailypoint-img/44434.png" 
     const defaultegg = "/dailypoint-img/812921.png" 
@@ -22,10 +25,8 @@ function Dailypoint () {
         const newEggStates = [...eggStates];
         newEggStates[i] = 1;
         setEggStates(newEggStates);
-        const pointArray = [50,100,150,200,250,300]
-        const randomNum = Math.ceil(Math.random()*6)-1
-        const getPoint = pointArray[randomNum]
-
+        
+        let getPoint = pointArray[randomNum]
         //console.log(getPoint);
         setEggPoints(getPoint)
         //每日只領一次
@@ -38,16 +39,8 @@ function Dailypoint () {
             // alert("今天領過囉")
             setShowup("今日已完成兌換囉...")
         }
-        /*
-        console.log(e.target);
-        if(eggbroken.dataCheck){
-            seteggbroken({...eggbroken,src:brokenegg,dataCheck:false})
-        } else {
-            alert("今天領過囉")
-        }
-        */
     }
-
+    
     return (
         <>
             <div className="mb-4 text-white bgg">

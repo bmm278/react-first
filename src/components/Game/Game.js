@@ -65,6 +65,13 @@ function Game() {
     }
   }
 
+  // function checkwin() {
+  //   if (choiceOne.src === choiceTwo.src) {
+  //     alert('獲得五點')
+  //   }
+  // }
+
+
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);

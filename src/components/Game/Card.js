@@ -12,7 +12,6 @@ function Card(props) {
                 props.handleChoice(props.card);
                 // console.log(props);
             }
-        
             }
     }
 

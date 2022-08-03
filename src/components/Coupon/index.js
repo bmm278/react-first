@@ -4,11 +4,39 @@ import React, { useState } from 'react'
 //import ChangeTab from '../ChangeTab'
 import axios from 'axios'
 
+const coponobj = [
+    {
+      id: 1,
+      point: 50,
+    },
+    {
+      id: 2,
+      point: 100,
+    },
+    {
+      id: 3,
+      point: 150,
+    },
+    {
+      id: 4,
+      point: 200,
+    },
+  ]
+
 export default function Coupon(props) {
     const {eggpoints} = props
+    console.log(props);
+    
+    //把上面的陣列塞進去
+    const[CouponData, setCouponData] = useState(coponobj)
+    console.log(CouponData)
+
     //useState 裡面應該要放一個變數
     const[changeCoupon, setchangeCoupon] = useState()
-    //const[CouponState, setCouponState] = useState('100點使用兌換券')
+
+      // 呈現資料畫面是否兌換完成
+    const[CouponState50, setCouponState50] = useState('50點兌換')
+    //console.log(CouponState50)
 
     //兌換判斷式 這個fc還沒寫完..
     function clickchange () {
@@ -16,13 +44,14 @@ export default function Coupon(props) {
         //console.log(changeCoupon)
         if(eggpoints >= changeCoupon){
             alert('兌換完成')
+            setCouponState50('兌換完成')
         }
         if (eggpoints !== changeCoupon){
             alert('抱歉點數不足')
         }
 
         //送資料到後端
-        axios.post('http://localhost:3600/game/coupon' , {change_coupon:10, change_memberid:530}).then(result=>{console.log(result.data)})
+        axios.post('http://localhost:3600/game/coupon' , {change_coupon:3, change_memberid:530}).then(result=>{console.log(result.data)})
     }
 
   return (
@@ -55,7 +84,7 @@ export default function Coupon(props) {
                                     --消費滿500可使用--
                                 </p>
                                 <button className="btn btn-primary" onClick={clickchange}> 
-                                    50點使用兌換
+                                    {CouponState50}
                                 </button>
                             </div>
                         </div>
