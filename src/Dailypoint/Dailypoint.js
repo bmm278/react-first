@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './dailypoint.css';
-import ChangeTab from '../components/ChangeTab'
+import Pages from '../components/Pages'
 import axios from 'axios'
 
 
@@ -9,6 +9,8 @@ function Dailypoint () {
     const [dataCheck, setDataCheck] = useState (true)
     const [eggStates, setEggStates] = useState([0,0,0,0,0]);
     const[eggpoints, setEggPoints] = useState(0);
+    //info頁籤的鉤子
+    const [info, setInfo] = useState(0)
     
     const [showup, setShowup] = useState();
 
@@ -84,9 +86,9 @@ function Dailypoint () {
                     </div>
                 </div>
             </div>
-
-            <div><ChangeTab eggpoints={eggpoints}/></div> 
-
+            
+            <div><Pages eggpoints={eggpoints} info={info} setInfo={setInfo} setEggPoints={setEggPoints}/></div> 
+            
         </>
     );
 }

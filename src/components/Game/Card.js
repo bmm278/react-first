@@ -1,13 +1,18 @@
 import './cardgame.css'
 
-
 function Card(props) {
    
+    const {eggpoints, setEggPoints} = props
+
     function handleChoice() {
         if (!props.disabled){
-            if(props.turn>=5){
+            if(props.turn>=2){
                 props.checkwin()
-                alert("恭喜獲得5點")
+                alert("恭喜獲得10點")
+                //下面應為增加點數..
+                setEggPoints(50)
+                
+                
             } else {
                 props.handleChoice(props.card);
                 // console.log(props);

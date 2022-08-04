@@ -11,13 +11,15 @@ const initialCards = [
   { "src": "/game-images/squirtle.png", matched: false },
 ];
 
-function Game() {
+function Game(props) {
   const [cards, setCards] = useState([]);
   const [turn, setTurn] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [disabled, setDisabled] = useState(true);
   const [startFlip, setStartFlip] = useState(true);
+  //解構蛋的點數
+  const {eggpoints, setEggPoints} = props
 
   useEffect(() => {
     setTimeout(() => {
@@ -65,7 +67,7 @@ function Game() {
     }
   }
 
-  // function checkwin() {
+  // function win() {
   //   if (choiceOne.src === choiceTwo.src) {
   //     alert('獲得五點')
   //   }
@@ -108,6 +110,8 @@ function Game() {
             matched={card.matched}
             checkwin={checkwin}
             turn={turn}
+            eggpoints={eggpoints} 
+            setEggPoints={setEggPoints}
           />
         ))}
       </div>
