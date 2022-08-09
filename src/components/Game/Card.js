@@ -1,31 +1,44 @@
-import './cardgame.css'
+import './cardgame.css';
 
 function Card(props) {
-   
-    const {eggpoints, setEggPoints} = props
+    const { eggpoints, setEggPoints } = props;
+    const Swal = require('sweetalert2');
 
     function handleChoice() {
-        if (!props.disabled){
-            if(props.turn>=2){
-                props.checkwin()
-                alert("恭喜獲得10點")
-                //下面應為增加點數..
-                setEggPoints(50)
-                
-                
+        if (!props.disabled) {
+            if (props.turn >= 5) {
+                //alert('哭哭');
+                Swal.fire({
+                    title: 'QQ.. Try again',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown',
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp',
+                    },
+                });
+                props.checkwin();
             } else {
                 props.handleChoice(props.card);
                 // console.log(props);
             }
-            }
+        }
     }
-
 
     return (
         <div className="game-card">
-            <div className={props.flipped ? "flipped" : ""}>
-                <img  className={`front ${props.card.matched ? "matched" : ''}`} src={props.card.src} alt="card front" />
-                <img className='back' src="/game-images/card_back.png" alt="card back" onClick={() => handleChoice()} />
+            <div className={props.flipped ? 'flipped' : ''}>
+                <img
+                    className={`front ${props.card.matched ? 'matched' : ''}`}
+                    src={props.card.src}
+                    alt="card front"
+                />
+                <img
+                    className="back"
+                    src="/game-images/card_back.png"
+                    alt="card back"
+                    onClick={() => handleChoice()}
+                />
             </div>
         </div>
     );

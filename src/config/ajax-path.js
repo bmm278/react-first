@@ -1,6 +1,6 @@
 export const SERVER = 'http://localhost:3600'
 
-export const AB_GET_LIST = `${SERVER}/coupon_01/api`
-export const AB_GET_LIST_AUTH = `${SERVER}/coupon_01/api-auth`;
+export const AB_GET_COUPON = `${SERVER}/game/coupon`;
+
 
 
