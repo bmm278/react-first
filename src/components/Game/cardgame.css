@@ -3,6 +3,10 @@
     cursor: pointer;
     border: 1px transparent solid;
 }
+/* 盤子hover? */
+/* .game-card:hover{
+    transform:translate(-20px, -10px) scale(1);
+} */
 
 .game-card .front {
     display: flex;
